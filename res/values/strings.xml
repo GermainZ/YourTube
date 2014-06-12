@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <resources>
+
+    <!-- Main settings screen -->
     <string name="app_name">YourTube</string>
     <string name="xposed_description">Change the default YouTube pane</string>
+    <string name="pref_default_pane_title">Default Pane</string>
+    <string name="pref_playlist_title">Playlist ID</string>
+    <string name="pref_subscription_title">Subscription ID</string>
+    <string name="pref_support_title">Support</string>
+    <string name="pref_show_app_icon_title">Show launcher icon</string>
+
+    <!-- List entries -->
+    <string name="what_to_watch">What To Watch</string>
+    <string name="my_subscriptions">My Subscriptions</string>
+    <string name="watch_later">Watch Later</string>
+    <string name="playlist">Playlist</string>
+    <string name="subscription">Subscription</string>
+    <string name="browse_channels">Browse Channels</string>
+
 </resources>

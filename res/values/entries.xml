@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <string-array name="panes_entries">
+        <item>@string/what_to_watch</item>
+        <item>@string/my_subscriptions</item>
+        <item>@string/watch_later</item>
+        <item>@string/playlist</item>
+        <item>@string/subscription</item>
+        <item>@string/browse_channels</item>
+    </string-array>
+    <string-array name="panes_values">
+        <item>FEwhat_to_watch</item>
+        <item>FEsubscriptions</item>
+        <item>VLWL</item>
+        <item>0</item>
+        <item>1</item>
+        <item>FEguide_builder</item>
+    </string-array>
+
+</resources>

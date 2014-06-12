@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ListPreference
+        android:key="pref_default_pane"
+        android:title="@string/pref_default_pane_title"
+        android:dialogTitle="@string/pref_default_pane_title"
+        android:defaultValue="FEsubscriptions"
+        android:entries="@array/panes_entries"
+        android:entryValues="@array/panes_values" />
+
+    <EditTextPreference
+        android:key="pref_playlist"
+        android:title="@string/pref_playlist_title"
+        android:enabled="false" />
+
+    <EditTextPreference
+        android:key="pref_subscription"
+        android:title="@string/pref_subscription_title"
+        android:enabled="false" />
+
+    <Preference
+        android:key="pref_support"
+        android:title="@string/pref_support_title">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="http://forum.xda-developers.com/xposed/modules/yourtube-change-default-youtube-pane-t2770778" />
+    </Preference>
+
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="pref_show_app_icon"
+        android:title="@string/pref_show_app_icon_title" />
+
+</PreferenceScreen>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <!-- Main settings screen -->
+    <string name="app_name">YourTube</string>
+    <string name="xposed_description">Zmeňte predvolený zobrazovaný panel v aplikácii YouTube</string>
+    <string name="pref_default_pane_title">Predvolený panel</string>
+    <string name="pref_playlist_title">ID zoznamu videí</string>
+    <string name="pref_subscription_title">ID odoberaného kanálu</string>
+    <string name="pref_support_title">Podpora</string>
+    <string name="pref_show_app_icon_title">Zobraziť ikonu tejto aplikácie v menu</string>
+
+    <!-- List entries -->
+    <string name="what_to_watch">Čo pozerať</string>
+    <string name="my_subscriptions">Moje odbery</string>
+    <string name="watch_later">Pozrieť neskôr</string>
+    <string name="playlist">Zoznamy videí</string>
+    <string name="subscription">Odoberaný kanál</string>
+    <string name="browse_channels">Prehliadať kanály</string>
+
+</resources>

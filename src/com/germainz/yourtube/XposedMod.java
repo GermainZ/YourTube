@@ -5,13 +5,9 @@ import de.robv.android.xposed.XC_MethodReplacement;
 import de.robv.android.xposed.XSharedPreferences;
 import de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam;
 
-import static de.robv.android.xposed.XposedHelpers.callMethod;
 import static de.robv.android.xposed.XposedHelpers.callStaticMethod;
 import static de.robv.android.xposed.XposedHelpers.findAndHookMethod;
 import static de.robv.android.xposed.XposedHelpers.findClass;
-import static de.robv.android.xposed.XposedHelpers.getObjectField;
-import static de.robv.android.xposed.XposedHelpers.newInstance;
-import static de.robv.android.xposed.XposedHelpers.setObjectField;
 
 public class XposedMod implements IXposedHookLoadPackage {
 
@@ -29,8 +25,8 @@ public class XposedMod implements IXposedHookLoadPackage {
 
         final XSharedPreferences prefs = new XSharedPreferences("com.germainz.yourtube");
 
-        findAndHookMethod("com.google.android.apps.youtube.app.fragments.navigation.d", lpparam.classLoader,
-                "a", "com.google.a.a.a.a.rl", boolean.class, new XC_MethodReplacement() {
+        findAndHookMethod("com.google.android.apps.youtube.app.WatchWhileActivity", lpparam.classLoader, "Q",
+                new XC_MethodReplacement() {
                     @Override
                     protected Object replaceHookedMethod(MethodHookParam param) throws Throwable {
                         String paneString = prefs.getString(PREF_DEFAULT_PANE, DEFAULT_PANE);
@@ -39,27 +35,10 @@ public class XposedMod implements IXposedHookLoadPackage {
                         else if (paneString.equals(PANE_SUBSCRIPTION))
                             paneString = prefs.getString(PREF_SUBSCRIPTION, "");
 
-                        boolean flag = (Boolean) param.args[1];
-                        int byte0;
-                        if (flag)
-                            byte0 = 2;
-                        else
-                            byte0 = 0;
-
-                        Class paneDescriptorClass = findClass("com.google.android.apps.youtube.app.fragments.navigation.PaneDescriptor", lpparam.classLoader);
-                        Class browseFragmentClass = findClass("com.google.android.apps.youtube.app.fragments.BrowseFragment", lpparam.classLoader);
-                        Class dClass = findClass("com.google.android.apps.youtube.app.fragments.navigation.d", lpparam.classLoader);
-                        Object object = callStaticMethod(dClass, "a", byte0);
-                        Object paneDescriptor = newInstance(paneDescriptorClass, browseFragmentClass, object);
-                        Class aClass1 = findClass("com.google.a.a.a.a.rl", lpparam.classLoader);
-                        Object aClass1Instance = newInstance(aClass1);
-                        Class aClass2 = findClass("com.google.a.a.a.a.bl", lpparam.classLoader);
-                        setObjectField(aClass1Instance, "d", newInstance(aClass2));
-                        Object c = getObjectField(aClass1Instance, "d");
-                        setObjectField(c, "b", paneString);
-                        callMethod(paneDescriptor, "setNavigationEndpoint", aClass1Instance);
-
-                        return paneDescriptor;
+                        Class navigationClass = findClass("com.google.android.apps.youtube.app.fragments.navigation.d", lpparam.classLoader);
+                        Class innertubeClass = findClass("com.google.android.apps.youtube.datalib.innertube.d.b", lpparam.classLoader);
+                        Object paneFromString = callStaticMethod(innertubeClass, "a", paneString);
+                        return callStaticMethod(navigationClass, "a", paneFromString, false);
                     }
                 }
         );

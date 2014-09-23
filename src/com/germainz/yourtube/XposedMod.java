@@ -43,25 +43,24 @@ public class XposedMod implements IXposedHookLoadPackage {
                 }
         );
 
-/*
-        findAndHookMethod("anw", lpparam.classLoader,
+
+        /*findAndHookMethod("anw", lpparam.classLoader,
                 "a", LayoutInflater.class, ViewGroup.class, Bundle.class, new XC_MethodHook() {
                     @Override
                     protected void afterHookedMethod(XC_MethodHook.MethodHookParam param) throws Throwable {
                         XposedBridge.log("Pane: " + getObjectField(param.thisObject, "ae"));
-        // What to watch: FEwhat_to_watch
-        // Subscriptions: FEsubscriptions
-        // Watch Later: VLWL
-        // Playlist: VL + <playlist_id>
-        // get playlist id from: https://www.youtube.com/playlist?list=playlist_id
-        // Liked videos: same as above
-        // subscriptions: <subscription_id>
-        // get subscriptions id from: https://www.youtube.com/channel/subscription_id
-        // Browse channels: FEguide_builder
+                        // What to watch: FEwhat_to_watch
+                        // Subscriptions: FEsubscriptions
+                        // Watch Later: VLWL
+                        // Playlist: VL + <playlist_id>
+                        // get playlist id from: https://www.youtube.com/playlist?list=playlist_id
+                        // Liked videos: same as above
+                        // subscriptions: <subscription_id>
+                        // get subscriptions id from: https://www.youtube.com/channel/subscription_id
+                        // Browse channels: FEguide_builder
                     }
                 }
-        );
-*/
+        );*/
 
     }
 }

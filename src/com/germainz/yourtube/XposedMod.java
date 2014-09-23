@@ -25,7 +25,7 @@ public class XposedMod implements IXposedHookLoadPackage {
 
         final XSharedPreferences prefs = new XSharedPreferences("com.germainz.yourtube");
 
-        findAndHookMethod("com.google.android.apps.youtube.app.WatchWhileActivity", lpparam.classLoader, "Q",
+        findAndHookMethod("com.google.android.apps.youtube.app.WatchWhileActivity", lpparam.classLoader, "M",
                 new XC_MethodReplacement() {
                     @Override
                     protected Object replaceHookedMethod(MethodHookParam param) throws Throwable {
@@ -35,8 +35,8 @@ public class XposedMod implements IXposedHookLoadPackage {
                         else if (paneString.equals(PANE_SUBSCRIPTION))
                             paneString = prefs.getString(PREF_SUBSCRIPTION, "");
 
-                        Class navigationClass = findClass("com.google.android.apps.youtube.app.fragments.navigation.d", lpparam.classLoader);
-                        Class innertubeClass = findClass("com.google.android.apps.youtube.datalib.innertube.d.b", lpparam.classLoader);
+                        Class navigationClass = findClass("a", lpparam.classLoader);
+                        Class innertubeClass = findClass("dhh", lpparam.classLoader);
                         Object paneFromString = callStaticMethod(innertubeClass, "a", paneString);
                         return callStaticMethod(navigationClass, "a", paneFromString, false);
                     }
@@ -44,11 +44,11 @@ public class XposedMod implements IXposedHookLoadPackage {
         );
 
 /*
-        findAndHookMethod("com.google.android.apps.youtube.app.fragments.BrowseFragment", lpparam.classLoader,
+        findAndHookMethod("anw", lpparam.classLoader,
                 "a", LayoutInflater.class, ViewGroup.class, Bundle.class, new XC_MethodHook() {
                     @Override
                     protected void afterHookedMethod(XC_MethodHook.MethodHookParam param) throws Throwable {
-                        XposedBridge.log("Pane: " + getObjectField(param.thisObject, "h"));
+                        XposedBridge.log("Pane: " + getObjectField(param.thisObject, "ae"));
         // What to watch: FEwhat_to_watch
         // Subscriptions: FEsubscriptions
         // Watch Later: VLWL

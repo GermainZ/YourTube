@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <!-- Main settings screen -->
+    <string name="app_name">YourTube</string>
+    <string name="xposed_description">Changer l\'onglet par défaut de YouTube</string>
+    <string name="pref_default_pane_title">Onglet par défaut</string>
+    <string name="pref_playlist_title">ID playlists</string>
+    <string name="pref_subscription_title">ID abonnements</string>
+    <string name="pref_support_title">Support</string>
+    <string name="pref_show_app_icon_title">Afficher l\'icône</string>
+
+    <!-- List entries -->
+    <string name="what_to_watch">Vidéos à regarder</string>
+    <string name="my_subscriptions">Mes abonnements</string>
+    <string name="watch_later">À regarder plus tard</string>
+    <string name="playlist">Playlists</string>
+    <string name="subscription">Abonnements</string>
+    <string name="browse_channels">Parcourir les chaînes</string>
+
+</resources>

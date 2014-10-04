@@ -25,7 +25,7 @@ public class XposedMod implements IXposedHookLoadPackage {
 
         final XSharedPreferences prefs = new XSharedPreferences("com.germainz.yourtube");
 
-        findAndHookMethod("com.google.android.apps.youtube.app.WatchWhileActivity", lpparam.classLoader, "M",
+        findAndHookMethod("com.google.android.apps.youtube.app.WatchWhileActivity", lpparam.classLoader, "O",
                 new XC_MethodReplacement() {
                     @Override
                     protected Object replaceHookedMethod(MethodHookParam param) throws Throwable {
@@ -36,31 +36,11 @@ public class XposedMod implements IXposedHookLoadPackage {
                             paneString = prefs.getString(PREF_SUBSCRIPTION, "");
 
                         Class navigationClass = findClass("a", lpparam.classLoader);
-                        Class innertubeClass = findClass("dhh", lpparam.classLoader);
+                        Class innertubeClass = findClass("emw", lpparam.classLoader);
                         Object paneFromString = callStaticMethod(innertubeClass, "a", paneString);
                         return callStaticMethod(navigationClass, "a", paneFromString, false);
                     }
                 }
         );
-
-
-        /*findAndHookMethod("anw", lpparam.classLoader,
-                "a", LayoutInflater.class, ViewGroup.class, Bundle.class, new XC_MethodHook() {
-                    @Override
-                    protected void afterHookedMethod(XC_MethodHook.MethodHookParam param) throws Throwable {
-                        XposedBridge.log("Pane: " + getObjectField(param.thisObject, "ae"));
-                        // What to watch: FEwhat_to_watch
-                        // Subscriptions: FEsubscriptions
-                        // Watch Later: VLWL
-                        // Playlist: VL + <playlist_id>
-                        // get playlist id from: https://www.youtube.com/playlist?list=playlist_id
-                        // Liked videos: same as above
-                        // subscriptions: <subscription_id>
-                        // get subscriptions id from: https://www.youtube.com/channel/subscription_id
-                        // Browse channels: FEguide_builder
-                    }
-                }
-        );*/
-
     }
 }

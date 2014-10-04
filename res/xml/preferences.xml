@@ -20,6 +20,12 @@
         android:title="@string/pref_subscription_title"
         android:enabled="false" />
 
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:key="pref_override_device_support"
+        android:title="@string/pref_override_device_support_title"
+        android:summary="@string/pref_override_device_support_summary" />
+
     <Preference
         android:key="pref_support"
         android:title="@string/pref_support_title">

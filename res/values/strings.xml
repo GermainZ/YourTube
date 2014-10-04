@@ -8,6 +8,9 @@
     <string name="pref_default_pane_title">Default Pane</string>
     <string name="pref_playlist_title">Playlist ID</string>
     <string name="pref_subscription_title">Subscription ID</string>
+    <string name="pref_override_device_support_title">Override device support</string>
+    <string name="pref_override_device_support_summary">Experimental. Override 720p, 1080p, 1440p
+        and 2160p compatibility checks.</string>
     <string name="pref_support_title">Support</string>
     <string name="pref_show_app_icon_title">Show launcher icon</string>
 

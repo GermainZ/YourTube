@@ -4,7 +4,7 @@
 
     <!-- Main settings screen -->
     <string name="app_name">YourTube</string>
-    <string name="xposed_description">Change the default YouTube pane</string>
+    <string name="xposed_description">Various customizations for the official YouTube app.</string>
     <string name="pref_default_pane_title">Default Pane</string>
     <string name="pref_playlist_title">Playlist ID</string>
     <string name="pref_subscription_title">Subscription ID</string>

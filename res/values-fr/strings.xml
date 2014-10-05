@@ -4,7 +4,7 @@
 
     <!-- Main settings screen -->
     <string name="app_name">YourTube</string>
-    <string name="xposed_description">Change l\'onglet par défaut de YouTube</string>
+    <string name="xposed_description">Diverses personnalisations pour l\'application officielle YouTube.</string>
     <string name="pref_default_pane_title">Onglet par défaut</string>
     <string name="pref_playlist_title">ID playlists</string>
     <string name="pref_subscription_title">ID abonnements</string>

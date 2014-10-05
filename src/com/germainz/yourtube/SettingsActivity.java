@@ -10,17 +10,14 @@ import android.preference.Preference;
 import android.preference.PreferenceFragment;
 
 public class SettingsActivity extends Activity {
-
     private static final String PANE_PLAYLIST = "0";
     private static final String PANE_SUBSCRIPTION = "1";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         if (savedInstanceState == null)
             getFragmentManager().beginTransaction().replace(android.R.id.content, new PrefsFragment()).commit();
-
     }
 
     public static class PrefsFragment extends PreferenceFragment {
@@ -28,7 +25,6 @@ public class SettingsActivity extends Activity {
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-
             getPreferenceManager().setSharedPreferencesMode(MODE_WORLD_READABLE);
             addPreferencesFromResource(R.xml.preferences);
 
@@ -60,14 +56,14 @@ public class SettingsActivity extends Activity {
             });
 
             showAppIconPref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-
                 @Override
                 public boolean onPreferenceChange(Preference preference, Object newValue) {
-                    Activity act = getActivity();
-                    PackageManager p = act.getPackageManager();
-                    int state = (Boolean) newValue ? PackageManager.COMPONENT_ENABLED_STATE_ENABLED : PackageManager.COMPONENT_ENABLED_STATE_DISABLED;
-                    final ComponentName alias = new ComponentName(getActivity(), "com.germainz.yourtube.SettingsActivity-Alias");
-                    p.setComponentEnabledSetting(alias, state, PackageManager.DONT_KILL_APP);
+                    Activity context = getActivity();
+                    int state = (Boolean) newValue ? PackageManager.COMPONENT_ENABLED_STATE_ENABLED :
+                            PackageManager.COMPONENT_ENABLED_STATE_DISABLED;
+                    final ComponentName alias = new ComponentName(context,
+                            "com.germainz.yourtube.SettingsActivity-Alias");
+                    context.getPackageManager().setComponentEnabledSetting(alias, state, PackageManager.DONT_KILL_APP);
                     return true;
                 }
             });

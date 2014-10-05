@@ -10,6 +10,7 @@
         <item>@string/subscription</item>
         <item>@string/browse_channels</item>
     </string-array>
+
     <string-array name="panes_values">
         <item>FEwhat_to_watch</item>
         <item>FEsubscriptions</item>
@@ -17,6 +18,30 @@
         <item>0</item>
         <item>1</item>
         <item>FEguide_builder</item>
+    </string-array>
+
+    <string-array name="quality_entries">
+        <item>@string/quality_auto</item>
+        <item>@string/quality_144p</item>
+        <item>@string/quality_240p</item>
+        <item>@string/quality_360p</item>
+        <item>@string/quality_480p</item>
+        <item>@string/quality_720p</item>
+        <item>@string/quality_1080p</item>
+        <item>@string/quality_1440p</item>
+        <item>@string/quality_2160p</item>
+    </string-array>
+
+    <string-array name="quality_values">
+        <item>-2</item>
+        <item>144</item>
+        <item>240</item>
+        <item>360</item>
+        <item>480</item>
+        <item>720</item>
+        <item>1080</item>
+        <item>1440</item>
+        <item>2160</item>
     </string-array>
 
 </resources>

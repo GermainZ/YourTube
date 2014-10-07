@@ -4,7 +4,7 @@
 
     <!-- Main settings screen -->
     <string name="app_name">YourTube</string>
-    <string name="xposed_description">Zmeňte predvolený zobrazovaný panel v aplikácii YouTube</string>
+    <string name="xposed_description">Rôzne úpravy pre oficiálnu YouTube aplikáciu.</string>
     <string name="pref_default_pane_title">Predvolené zobrazenie</string>
     <string name="pref_playlist_title">ID zoznamu videí</string>
     <string name="pref_subscription_title">ID odoberaného kanálu</string>

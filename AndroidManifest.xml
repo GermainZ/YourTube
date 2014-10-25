@@ -1,11 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.germainz.yourtube"
-    android:versionCode="9"
-    android:versionName="1.2">
+    android:versionCode="10"
+    android:versionName="1.2.1">
 
     <uses-sdk
         android:minSdkVersion="15"
-        android:targetSdkVersion="20" />
+        android:targetSdkVersion="21" />
 
     <application
         android:icon="@drawable/ic_launcher"

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <!-- Main settings screen -->
+    <string name="app_name">YourTube</string>
+    <string name="xposed_description">Diverse aanpassingen voor de officiele YouTube app.</string>
+    <string name="pref_default_pane_title">Standaard scherm</string>
+    <string name="pref_playlist_title">Afspeellijst ID</string>
+    <string name="pref_subscription_title">Abonnementen ID</string>
+    <string name="pref_maximum_stream_quality_title">Maximum standaard kwaliteit</string>
+    <string name="pref_maximum_stream_quality_summary">Experimenteel.</string>
+    <string name="pref_override_device_support_title">Apparaat ondersteuning dwingen</string>
+    <string name="pref_override_device_support_summary">Experimenteel. Dwing 720p, 1080p, 1440p
+        en 2160p compatibiliteit te controleren.</string>
+    <string name="pref_support_title">Ondersteuning</string>
+    <string name="pref_show_app_icon_title">Toon launcher icoon</string>
+
+    <!-- List entries -->
+    <string name="what_to_watch">Wat je kunt bekijken</string>
+    <string name="my_subscriptions">Mijn abonnementen</string>
+    <string name="watch_later">Later bekijken</string>
+    <string name="playlist">Afspeellijsten</string>
+    <string name="subscription">Abonnementen</string>
+    <string name="browse_channels">Browse door kanalen</string>
+    <string name="quality_auto">Auto</string>
+    <string name="quality_144p">144p</string>
+    <string name="quality_240p">240p</string>
+    <string name="quality_360p">360p</string>
+    <string name="quality_480p">480p</string>
+    <string name="quality_720p">720p</string>
+    <string name="quality_1080p">1080p</string>
+    <string name="quality_1440p">1440p</string>
+    <string name="quality_2160p">2160p</string>
+
+</resources>

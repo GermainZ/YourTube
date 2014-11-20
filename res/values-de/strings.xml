@@ -5,16 +5,15 @@
     <!-- Main settings screen -->
     <string name="app_name">YourTube</string>
     <string name="xposed_description">Verschiedene Anpassungen für die offizielle YouTube-App.</string>
-    <string name="pref_default_pane_title">Standart Fenster</string>
+    <string name="pref_default_pane_title">Standardfenster</string>
     <string name="pref_playlist_title">Playlist ID</string>
     <string name="pref_subscription_title">Abonnenten ID</string>
-    <string name="pref_maximum_stream_quality_title">Maximale Standart Qualität</string>
-    <string name="pref_maximum_stream_quality_summary">Experimentieren</string>
-    <string name="pref_override_device_support_title">Überschreibt die Geräteunterstützung</string>
-    <string name="pref_override_device_support_summary">Experimentieren. Überschreibt 720p, 1080p, 1440p
-        und 2160p Kompatibilitätsprüfungen.</string>
-    <string name="pref_support_title">Support</string>
-    <string name="pref_show_app_icon_title">Symbol im Launcher anzeigen</string>
+    <string name="pref_maximum_stream_quality_title">Maximale Standardqualität</string>
+    <string name="pref_maximum_stream_quality_summary">Experimentell.</string>
+    <string name="pref_override_device_support_title">Geräteunterstützung überschreiben</string>
+    <string name="pref_override_device_support_summary">Experimentell. Überschreibt 720p, 1080p, 1440p und 2160p Kompatibilitätsüberprüfungen.</string>
+    <string name="pref_support_title">Hilfe</string>
+    <string name="pref_show_app_icon_title">Launchersymbol anzeigen</string>
 
     <!-- List entries -->
     <string name="what_to_watch">Empfohlene Videos</string>
@@ -23,7 +22,7 @@
     <string name="playlist">Playlist</string>
     <string name="subscription">Abos</string>
     <string name="browse_channels">Kanäle finden</string>
-    <string name="quality_auto">Auto</string>
+    <string name="quality_auto">Autom.</string>
     <string name="quality_144p">144p</string>
     <string name="quality_240p">240p</string>
     <string name="quality_360p">360p</string>

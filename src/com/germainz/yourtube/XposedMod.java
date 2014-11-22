@@ -39,7 +39,7 @@ public class XposedMod implements IXposedHookLoadPackage {
         // Default pane.
         // =============
 
-        findAndHookMethod("com.google.android.apps.youtube.app.WatchWhileActivity", lpparam.classLoader, "M",
+        findAndHookMethod("com.google.android.apps.youtube.app.WatchWhileActivity", lpparam.classLoader, "O",
                 new XC_MethodReplacement() {
                     @Override
                     protected Object replaceHookedMethod(MethodHookParam param) throws Throwable {
@@ -60,7 +60,7 @@ public class XposedMod implements IXposedHookLoadPackage {
                             paneString = prefs.getString(PREF_SUBSCRIPTION, "");
 
                         Class navigationClass = findClass("b", lpparam.classLoader);
-                        Class innertubeClass = findClass("ewx", lpparam.classLoader);
+                        Class innertubeClass = findClass("fbb", lpparam.classLoader);
                         Object paneFromString = callStaticMethod(innertubeClass, "a", paneString);
                         return callStaticMethod(navigationClass, "a", paneFromString, false);
                     }
@@ -72,16 +72,16 @@ public class XposedMod implements IXposedHookLoadPackage {
 
         XC_MethodHook deviceSupportHook = new XC_MethodHook() {
             @Override
-            protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
+            protected void afterHookedMethod(MethodHookParam param) throws Throwable {
                 if (prefs.getBoolean(PREF_OVERRIDE_DEVICE_SUPPORT, false))
                     param.setResult(true);
             }
         };
 
-        findAndHookMethod("cbl", lpparam.classLoader, "A", deviceSupportHook);
-        findAndHookMethod("cbl", lpparam.classLoader, "B", deviceSupportHook);
-        findAndHookMethod("cbl", lpparam.classLoader, "C", deviceSupportHook);
-        findAndHookMethod("cbl", lpparam.classLoader, "D", deviceSupportHook);
+        findAndHookMethod("cej", lpparam.classLoader, "A", deviceSupportHook);
+        findAndHookMethod("cej", lpparam.classLoader, "B", deviceSupportHook);
+        findAndHookMethod("cej", lpparam.classLoader, "C", deviceSupportHook);
+        findAndHookMethod("cej", lpparam.classLoader, "D", deviceSupportHook);
 
         // Default resolution.
         // ===================
@@ -98,7 +98,7 @@ public class XposedMod implements IXposedHookLoadPackage {
 
         // We also want to get a list of the available qualities for this video, because the one that is passed
         // below is localized, so not comparable easily.
-        findAndHookMethod("csy", lpparam.classLoader, "handleFormatStreamChangeEvent", "fqy", new XC_MethodHook() {
+        findAndHookMethod("cvw", lpparam.classLoader, "handleFormatStreamChangeEvent", "fvm", new XC_MethodHook() {
             @Override
             protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
                 Object[] info = (Object[]) getObjectField(param.args[0], "d");
@@ -110,7 +110,7 @@ public class XposedMod implements IXposedHookLoadPackage {
         });
 
         // Override the default quality.
-        findAndHookMethod("ctg", lpparam.classLoader, "a", String[].class, int.class, new XC_MethodHook() {
+        findAndHookMethod("cwe", lpparam.classLoader, "a", String[].class, int.class, new XC_MethodHook() {
             @Override
             protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
                 if (sNewVideo) {

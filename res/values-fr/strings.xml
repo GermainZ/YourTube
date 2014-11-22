@@ -9,7 +9,6 @@
     <string name="pref_playlist_title">ID playlists</string>
     <string name="pref_subscription_title">ID abonnements</string>
     <string name="pref_maximum_stream_quality_title">Qualité maximale par défaut</string>
-    <string name="pref_maximum_stream_quality_summary">Expérimental.</string>
     <string name="pref_override_device_support_title">Outrepasser supporté par l\'appareil</string>
     <string name="pref_override_device_support_summary">Expérimental. Ignorer la vérification de compatibilité 720p, 1080p, 1440p
         et 2160p.</string>    
@@ -32,5 +31,5 @@
     <string name="quality_1080p">1080p</string>
     <string name="quality_1440p">1440p</string>
     <string name="quality_2160p">2160p</string>
-    
+
 </resources>

@@ -23,7 +23,6 @@
     <ListPreference
         android:key="pref_maximum_stream_quality"
         android:title="@string/pref_maximum_stream_quality_title"
-        android:summary="@string/pref_maximum_stream_quality_summary"
         android:defaultValue="-2"
         android:entries="@array/quality_entries"
         android:entryValues="@array/quality_values" />

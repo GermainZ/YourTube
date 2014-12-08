@@ -4,12 +4,10 @@ import java.util.ArrayList;
 
 import de.robv.android.xposed.IXposedHookLoadPackage;
 import de.robv.android.xposed.XC_MethodHook;
-import de.robv.android.xposed.XC_MethodReplacement;
 import de.robv.android.xposed.XSharedPreferences;
 import de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam;
 
 import static de.robv.android.xposed.XposedHelpers.callMethod;
-import static de.robv.android.xposed.XposedHelpers.callStaticMethod;
 import static de.robv.android.xposed.XposedHelpers.findAndHookMethod;
 import static de.robv.android.xposed.XposedHelpers.findClass;
 import static de.robv.android.xposed.XposedHelpers.getIntField;
@@ -28,6 +26,7 @@ public class XposedMod implements IXposedHookLoadPackage {
 
     private static boolean sNewVideo = true;
     private static ArrayList<Integer> sStreamQualities;
+    private static XC_MethodHook.Unhook sPaneHook;
 
     @Override
     public void handleLoadPackage(final LoadPackageParam lpparam) throws Throwable {
@@ -39,11 +38,15 @@ public class XposedMod implements IXposedHookLoadPackage {
         // Default pane.
         // =============
 
-        findAndHookMethod("com.google.android.apps.youtube.app.WatchWhileActivity", lpparam.classLoader, "L",
-                new XC_MethodReplacement() {
-                    @Override
-                    protected Object replaceHookedMethod(MethodHookParam param) throws Throwable {
-                        String paneString = prefs.getString(PREF_DEFAULT_PANE, DEFAULT_PANE);
+        sPaneHook = findAndHookMethod(findClass("fia", lpparam.classLoader), "a", String.class, new XC_MethodHook() {
+            @Override
+            protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
+                if (param.args[0].equals("FEwhat_to_watch")) {
+                    // change pane only on initial start up
+                    sPaneHook.unhook();
+                }
+
+                String paneString = prefs.getString(PREF_DEFAULT_PANE, DEFAULT_PANE);
                         /* Pane ID:
                            What to watch: FEwhat_to_watch
                            Subscriptions: FEsubscriptions
@@ -54,18 +57,14 @@ public class XposedMod implements IXposedHookLoadPackage {
                            Subscriptions: <subscription_id>
                                Get subscriptions id from: https://www.youtube.com/channel/subscription_id
                            Browse channels: FEguide_builder */
-                        if (paneString.equals(PANE_PLAYLIST))
-                            paneString = "VL" + prefs.getString(PREF_PLAYLIST, "");
-                        else if (paneString.equals(PANE_SUBSCRIPTION))
-                            paneString = prefs.getString(PREF_SUBSCRIPTION, "");
+                if (paneString.equals(PANE_PLAYLIST))
+                    paneString = "VL" + prefs.getString(PREF_PLAYLIST, "");
+                else if (paneString.equals(PANE_SUBSCRIPTION))
+                    paneString = prefs.getString(PREF_SUBSCRIPTION, "");
 
-                        Class navigationClass = findClass("a", lpparam.classLoader);
-                        Class innertubeClass = findClass("fia", lpparam.classLoader);
-                        Object paneFromString = callStaticMethod(innertubeClass, "a", paneString);
-                        return callStaticMethod(navigationClass, "a", paneFromString, false);
-                    }
-                }
-        );
+                param.args[0] = paneString;
+            }
+        });
 
         // Override compatibility checks.
         // ==============================

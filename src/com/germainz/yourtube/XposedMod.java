@@ -26,7 +26,7 @@ public class XposedMod implements IXposedHookLoadPackage {
 
     private static boolean sNewVideo = true;
     private static ArrayList<Integer> sStreamQualities;
-    private static XC_MethodHook.Unhook paneHook;
+    private static XC_MethodHook.Unhook sPaneHook;
 
     @Override
     public void handleLoadPackage(final LoadPackageParam lpparam) throws Throwable {
@@ -38,12 +38,12 @@ public class XposedMod implements IXposedHookLoadPackage {
         // Default pane.
         // =============
 
-        paneHook = findAndHookMethod(findClass("fia", lpparam.classLoader), "a", String.class, new XC_MethodHook() {
+        sPaneHook = findAndHookMethod(findClass("fia", lpparam.classLoader), "a", String.class, new XC_MethodHook() {
             @Override
             protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
                 if (param.args[0].equals("FEwhat_to_watch")) {
                     // change pane only on initial start up
-                    paneHook.unhook();
+                    sPaneHook.unhook();
                 }
 
                 String paneString = prefs.getString(PREF_DEFAULT_PANE, DEFAULT_PANE);

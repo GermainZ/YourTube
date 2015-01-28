@@ -104,9 +104,8 @@ public class XposedMod implements IXposedHookLoadPackage {
             protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
                 Object[] info = (Object[]) getObjectField(param.args[0], "d");
                 sStreamQualities = new ArrayList<Integer>();
-                for (Object streamQuality : info) {
+                for (Object streamQuality : info)
                     sStreamQualities.add(getIntField(streamQuality, "a"));
-                }
             }
         });
 
@@ -117,7 +116,7 @@ public class XposedMod implements IXposedHookLoadPackage {
                 if (sNewVideo) {
                     sNewVideo = false;
                     /* Stream qualities:
-                       -2 is used for "Auto", which resolves by default to the maximum available resolution.
+                       -2 is used for "Auto".
                        Other qualities have their respective values (e.g. 720, 1080, etc). */
                     int maximumStreamQuality = Integer.parseInt(prefs.getString(PREF_MAXIMUM_STREAM_QUALITY,
                             DEFAULT_STREAM_QUALITY));
@@ -127,9 +126,9 @@ public class XposedMod implements IXposedHookLoadPackage {
                             quality = streamQuality;
                     }
                     if (quality == -2)
-                        quality = sStreamQualities.get(sStreamQualities.size() - 1);
+                        return;
                     else
-                        quality = sStreamQualities.indexOf(quality);
+                        quality = sStreamQualities.indexOf(quality) + 1;
                     /* This method only controls the list shown to the user and the current selection.
                        It's called by handleFormatStreamChangeEvent, which in turn seems to be called by native code
                        *after* the quality has been changed.

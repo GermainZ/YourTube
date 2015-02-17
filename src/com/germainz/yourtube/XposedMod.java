@@ -57,7 +57,7 @@ public class XposedMod implements IXposedHookLoadPackage {
                         else if (paneString.equals(PANE_SUBSCRIPTION))
                             paneString = prefs.getString(PREF_SUBSCRIPTION, "");
                         final String finalPaneString = paneString;
-                        findAndHookMethod("ffd", lpparam.classLoader, "a", String.class, new XC_MethodHook() {
+                        findAndHookMethod("fra", lpparam.classLoader, "a", String.class, new XC_MethodHook() {
                             @Override
                             protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
                                 param.args[0] = finalPaneString;
@@ -79,10 +79,10 @@ public class XposedMod implements IXposedHookLoadPackage {
             }
         };
 
-        findAndHookMethod("cnn", lpparam.classLoader, "A", deviceSupportHook);
-        findAndHookMethod("cnn", lpparam.classLoader, "B", deviceSupportHook);
-        findAndHookMethod("cnn", lpparam.classLoader, "C", deviceSupportHook);
-        findAndHookMethod("cnn", lpparam.classLoader, "z", deviceSupportHook);
+        findAndHookMethod("ctm", lpparam.classLoader, "A", deviceSupportHook);
+        findAndHookMethod("ctm", lpparam.classLoader, "B", deviceSupportHook);
+        findAndHookMethod("ctm", lpparam.classLoader, "C", deviceSupportHook);
+        findAndHookMethod("ctm", lpparam.classLoader, "z", deviceSupportHook);
 
         // Default resolution.
         // ===================
@@ -99,7 +99,7 @@ public class XposedMod implements IXposedHookLoadPackage {
 
         // We also want to get a list of the available qualities for this video, because the one that is passed
         // below is localized, so not comparable easily.
-        findAndHookMethod("cvl", lpparam.classLoader, "handleFormatStreamChangeEvent", "ggh", new XC_MethodHook() {
+        findAndHookMethod("czr", lpparam.classLoader, "handleFormatStreamChangeEvent", "gtq", new XC_MethodHook() {
             @Override
             protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
                 Object[] info = (Object[]) getObjectField(param.args[0], "d");
@@ -110,7 +110,7 @@ public class XposedMod implements IXposedHookLoadPackage {
         });
 
         // Override the default quality.
-        findAndHookMethod("cvt", lpparam.classLoader, "a", String[].class, int.class, new XC_MethodHook() {
+        findAndHookMethod("czz", lpparam.classLoader, "a", String[].class, int.class, new XC_MethodHook() {
             @Override
             protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
                 if (sNewVideo) {

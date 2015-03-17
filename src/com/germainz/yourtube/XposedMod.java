@@ -27,6 +27,25 @@ public class XposedMod implements IXposedHookLoadPackage {
     private static boolean sNewVideo = true;
     private static ArrayList<Integer> sStreamQualities;
 
+    private static final String VAR_1 = "O";
+    private static final String VAR_2 = "fvn";
+    private static final String VAR_3 = "a";
+    private static final String VAR_4 = "cve";
+    private static final String VAR_5 = "A";
+    private static final String VAR_6 = "B";
+    private static final String VAR_7 = "C";
+    private static final String VAR_8 = "D";
+    private static final String VAR_9 = "bjr";
+    private static final String VAR_10 = "a";
+    private static final String VAR_11 = "daj";
+    private static final String VAR_12 = "gzk";
+    private static final String VAR_13 = "d";
+    private static final String VAR_14 = "a";
+    private static final String VAR_15 = "hpg";
+    private static final String VAR_16 = "a";
+    private static final String VAR_17 = "E";
+    private static final String VAR_18 = "a";
+
     @Override
     public void handleLoadPackage(final LoadPackageParam lpparam) throws Throwable {
         if (!lpparam.packageName.equals("com.google.android.youtube"))
@@ -37,7 +56,7 @@ public class XposedMod implements IXposedHookLoadPackage {
         // Default pane.
         // =============
 
-        findAndHookMethod("com.google.android.apps.youtube.app.WatchWhileActivity", lpparam.classLoader, "K",
+        findAndHookMethod("com.google.android.apps.youtube.app.WatchWhileActivity", lpparam.classLoader, VAR_1,
                 new XC_MethodHook() {
                     @Override
                     protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
@@ -57,7 +76,7 @@ public class XposedMod implements IXposedHookLoadPackage {
                         else if (paneString.equals(PANE_SUBSCRIPTION))
                             paneString = prefs.getString(PREF_SUBSCRIPTION, "");
                         final String finalPaneString = paneString;
-                        findAndHookMethod("fra", lpparam.classLoader, "a", String.class, new XC_MethodHook() {
+                        findAndHookMethod(VAR_2, lpparam.classLoader, VAR_3, String.class, new XC_MethodHook() {
                             @Override
                             protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
                                 param.args[0] = finalPaneString;
@@ -79,17 +98,17 @@ public class XposedMod implements IXposedHookLoadPackage {
             }
         };
 
-        findAndHookMethod("ctm", lpparam.classLoader, "A", deviceSupportHook);
-        findAndHookMethod("ctm", lpparam.classLoader, "B", deviceSupportHook);
-        findAndHookMethod("ctm", lpparam.classLoader, "C", deviceSupportHook);
-        findAndHookMethod("ctm", lpparam.classLoader, "z", deviceSupportHook);
+        findAndHookMethod(VAR_4, lpparam.classLoader, VAR_5, deviceSupportHook);
+        findAndHookMethod(VAR_4, lpparam.classLoader, VAR_6, deviceSupportHook);
+        findAndHookMethod(VAR_4, lpparam.classLoader, VAR_7, deviceSupportHook);
+        findAndHookMethod(VAR_4, lpparam.classLoader, VAR_8, deviceSupportHook);
 
         // Default resolution.
         // ===================
 
         // We don't want to override the resolution when it's manually changed by the user, so we need to know
         // if the video was just opened (in which case the next time the resolution is set would be automatic) or not.
-        findAndHookMethod("com.google.android.apps.youtube.app.fragments.PlayerFragment", lpparam.classLoader, "a",
+        findAndHookMethod(VAR_9, lpparam.classLoader, VAR_10,
                 boolean.class, new XC_MethodHook() {
                     @Override
                     protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
@@ -99,18 +118,18 @@ public class XposedMod implements IXposedHookLoadPackage {
 
         // We also want to get a list of the available qualities for this video, because the one that is passed
         // below is localized, so not comparable easily.
-        findAndHookMethod("czr", lpparam.classLoader, "handleFormatStreamChangeEvent", "gtq", new XC_MethodHook() {
+        findAndHookMethod(VAR_11, lpparam.classLoader, "handleFormatStreamChangeEvent", VAR_12, new XC_MethodHook() {
             @Override
             protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
-                Object[] info = (Object[]) getObjectField(param.args[0], "d");
+                Object[] info = (Object[]) getObjectField(param.args[0], VAR_13);
                 sStreamQualities = new ArrayList<Integer>();
                 for (Object streamQuality : info)
-                    sStreamQualities.add(getIntField(streamQuality, "a"));
+                    sStreamQualities.add(getIntField(streamQuality, VAR_14));
             }
         });
 
         // Override the default quality.
-        findAndHookMethod("czz", lpparam.classLoader, "a", String[].class, int.class, new XC_MethodHook() {
+        findAndHookMethod(VAR_15, lpparam.classLoader, VAR_16, String[].class, int.class, new XC_MethodHook() {
             @Override
             protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
                 if (sNewVideo) {
@@ -137,7 +156,7 @@ public class XposedMod implements IXposedHookLoadPackage {
                     param.args[1] = quality;
                     // This method is the one called when the user presses the button, and actually causes
                     // the quality to change.
-                    callMethod(getObjectField(param.thisObject, "D"), "a", quality);
+                    callMethod(getObjectField(param.thisObject, VAR_17), VAR_18, quality);
                 }
             }
         });

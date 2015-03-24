@@ -28,22 +28,22 @@ public class XposedMod implements IXposedHookLoadPackage {
     private static ArrayList<Integer> sStreamQualities;
 
     private static final String VAR_1 = "O";
-    private static final String VAR_2 = "fvn";
+    private static final String VAR_2 = "fur";
     private static final String VAR_3 = "a";
-    private static final String VAR_4 = "cve";
+    private static final String VAR_4 = "cus";
     private static final String VAR_5 = "A";
     private static final String VAR_6 = "B";
     private static final String VAR_7 = "C";
-    private static final String VAR_8 = "D";
-    private static final String VAR_9 = "bjr";
-    private static final String VAR_10 = "a";
-    private static final String VAR_11 = "daj";
-    private static final String VAR_12 = "gzk";
+    private static final String VAR_8 = "z";
+    private static final String VAR_9 = "bis";
+    private static final String VAR_10 = "B";
+    private static final String VAR_11 = "czb";
+    private static final String VAR_12 = "gyq";
     private static final String VAR_13 = "d";
     private static final String VAR_14 = "a";
-    private static final String VAR_15 = "hpg";
+    private static final String VAR_15 = "btg";
     private static final String VAR_16 = "a";
-    private static final String VAR_17 = "E";
+    private static final String VAR_17 = "G";
     private static final String VAR_18 = "a";
 
     @Override
@@ -108,8 +108,7 @@ public class XposedMod implements IXposedHookLoadPackage {
 
         // We don't want to override the resolution when it's manually changed by the user, so we need to know
         // if the video was just opened (in which case the next time the resolution is set would be automatic) or not.
-        findAndHookMethod(VAR_9, lpparam.classLoader, VAR_10,
-                boolean.class, new XC_MethodHook() {
+        findAndHookMethod(VAR_9, lpparam.classLoader, VAR_10, new XC_MethodHook() {
                     @Override
                     protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
                         sNewVideo = true;

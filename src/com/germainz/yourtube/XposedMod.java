@@ -27,21 +27,21 @@ public class XposedMod implements IXposedHookLoadPackage {
     private static boolean sNewVideo = true;
     private static ArrayList<Integer> sStreamQualities;
 
-    private static final String VAR_1 = "O";
-    private static final String VAR_2 = "fur";
+    private static final String VAR_1 = "N";
+    private static final String VAR_2 = "fuv";
     private static final String VAR_3 = "a";
-    private static final String VAR_4 = "cus";
+    private static final String VAR_4 = "cvf";
     private static final String VAR_5 = "A";
     private static final String VAR_6 = "B";
     private static final String VAR_7 = "C";
     private static final String VAR_8 = "z";
-    private static final String VAR_9 = "bis";
+    private static final String VAR_9 = "bja";
     private static final String VAR_10 = "B";
-    private static final String VAR_11 = "czb";
-    private static final String VAR_12 = "gyq";
+    private static final String VAR_11 = "cze";
+    private static final String VAR_12 = "gzh";
     private static final String VAR_13 = "d";
     private static final String VAR_14 = "a";
-    private static final String VAR_15 = "btg";
+    private static final String VAR_15 = "bts";
     private static final String VAR_16 = "a";
     private static final String VAR_17 = "G";
     private static final String VAR_18 = "a";

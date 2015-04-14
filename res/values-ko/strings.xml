@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <string name="app_name">YourTube</string>
+    <string name="xposed_description">공식 YouTube 어플리케이션에 대한 커스터마이징 옵션들이 있습니다.</string>
+    <string name="pref_default_pane_title">기본  창</string>
+    <string name="pref_playlist_title">재생 목록 ID</string>
+    <string name="pref_subscription_title">구독 ID</string>
+    <string name="pref_maximum_stream_quality_title">최대 기본 화질</string>
+    <string name="pref_override_device_support_title">기기별 화질 설정 무시</string>
+    <string name="pref_override_device_support_summary">실험적인 기능입니다. 720p, 1080p, 1440p, 2160p 등의 화질 설정을 제한 해제합니다.</string>
+    <string name="pref_support_title">지원</string>
+    <string name="pref_show_app_icon_title">홈 런처에서 앱 아이콘 표시</string>
+
+    <string name="what_to_watch">What To Watch</string>
+    <string name="my_subscriptions">내 구독 정보</string>
+    <string name="watch_later">나중에 보기</string>
+    <string name="playlist">재생 목록</string>
+    <string name="subscription">구독</string>
+    <string name="browse_channels">채널 둘러보기</string>
+    <string name="quality_auto">자동</string>
+    <string name="quality_144p">144p</string>
+    <string name="quality_240p">240p</string>
+    <string name="quality_360p">360p</string>
+    <string name="quality_480p">480p</string>
+    <string name="quality_720p">720p</string>
+    <string name="quality_1080p">1080p</string>
+    <string name="quality_1440p">1440p</string>
+    <string name="quality_2160p">2160p</string>
+
+</resources>

@@ -28,20 +28,20 @@ public class XposedMod implements IXposedHookLoadPackage {
     private static ArrayList<Integer> sStreamQualities;
 
     private static final String VAR_1 = "M";
-    private static final String VAR_2 = "fub";
+    private static final String VAR_2 = "fsv";
     private static final String VAR_3 = "a";
-    private static final String VAR_4 = "cuy";
+    private static final String VAR_4 = "cty";
     private static final String VAR_5 = "A";
     private static final String VAR_6 = "B";
     private static final String VAR_7 = "C";
     private static final String VAR_8 = "z";
-    private static final String VAR_9 = "bjh";
+    private static final String VAR_9 = "bic";
     private static final String VAR_10 = "B";
-    private static final String VAR_11 = "cyt";
-    private static final String VAR_12 = "gxq";
+    private static final String VAR_11 = "cxs";
+    private static final String VAR_12 = "gwz";
     private static final String VAR_13 = "d";
     private static final String VAR_14 = "a";
-    private static final String VAR_15 = "bun";
+    private static final String VAR_15 = "btl";
     private static final String VAR_16 = "a";
     private static final String VAR_17 = "G";
     private static final String VAR_18 = "a";
